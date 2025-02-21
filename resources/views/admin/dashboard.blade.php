@@ -110,7 +110,13 @@
                             <ul class="list-group">
                                 @foreach ($santriTerbaru as $santri)
                                     <li class="list-group-item d-flex align-items-center">
-                                        <img src="{{ asset('storage/' . ($santri->foto ?? 'default.png')) }}" class="rounded-circle me-2" alt="Profil" width="40" height="40">                                        <div>
+                                        <img src="{{ asset('storage/' . ($santri->FilePendaftaran->pas_foto ?? 'default.png')) }}"
+                                            class="rounded-circle me-2"
+                                            alt="Profil"
+                                            width="50"
+                                            height="50"
+                                            style="object-fit: cover;">
+                                      <div>
                                             <strong>{{ $santri->nama_santri }}</strong><br>
                                             <small>{{ $santri->orangTua->no_hp ?? '-' }}</small>
                                         </div>

@@ -131,10 +131,13 @@ public function create()
 
     public function show(Pendaftaran $pendaftar)
     {
-        // Menyertakan relasi untuk orang tua, wali, dan file pendaftaran
-        $pendaftar->load('orangTua', 'wali', 'filePendaftaran', 'statusPendaftaran');
+        $users = User::where('role', 'wali_santri')->get();
+        $jenjangs = JenjangPendidikan::all();
+        $tahunAjarans = TahunAjaran::all();
+        $status = StatusPendaftaran::all();
+        
     
-        return view('pendaftar.show', compact('pendaftar'));
+        return view('pendaftar.show', compact('users', 'jenjangs', 'tahunAjarans', 'status', 'pendaftar'));
     }
 
 
