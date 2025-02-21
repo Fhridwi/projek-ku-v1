@@ -17,11 +17,11 @@ class Pendaftaran extends Model
     }
     public function jenjangPendidikan()
     {
-        return $this->belongsTo(JenjangPendidikan::class);
+        return $this->belongsTo(JenjangPendidikan::class, 'jenjang_id');
     }
     public function statusPendaftaran()
     {
-        return $this->belongsTo(StatusPendaftaran::class);
+        return $this->belongsTo(StatusPendaftaran::class, 'status_id');
     }
     public function orangTua()
     {

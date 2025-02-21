@@ -9,6 +9,6 @@ class JenjangPendidikan extends Model
         {
             use HasFactory;
             protected $table = 'jenjang_pendidikan';
-            protected $fillable = ['nama_jenjang',   ];
+            protected $fillable = ['nama_jenjang',];
         }
 
