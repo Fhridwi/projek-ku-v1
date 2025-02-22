@@ -33,7 +33,22 @@ class AkunController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=> 'required',
+            'email'=> 'required',
+            'role'=> 'required',
+            'password'=> 'required',
+            'passwordConfrim'=> 'required|same:password',
+            
+        ]);
+
+        $user = User::create([
+            'name'=> $request->name,
+            'email'=> $request->email,
+        ]);
+
+
+        dd($request->all());
     }
 
     /**
