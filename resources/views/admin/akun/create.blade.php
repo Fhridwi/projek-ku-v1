@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Tambah Akun ')
-@section('title2', 'Tambah Akun ')
-
+@section('title', 'Tambah Akun')
+@section('title2', 'Tambah Akun')
 
 @section('content')
 <div class="card">
@@ -10,30 +9,30 @@
         <h5 class="card-title">Tambah Akun</h5>
     </div>
     <div class="card-body">
-        <form action="{{ route('status.store') }}" method="POST">
+        <form action="{{ route('akun.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" name="name" id="username" required>
+                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name')}}" id="username" required>
                 @error('name')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="invalid-feedback">{{ $message }}</div>  
                 @enderror
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email" required>
+                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{ old('email') }}" required>
                 @error('email')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="form-group">
-                <label for="role">role</label>
-                <select name="role" id="role" class="form-control">
+                <label for="role">Role</label>
+                <select name="role" id="role" class="form-control @error('role') is-invalid @enderror">
                     <option value="">-- Pilih Role User --</option>
                     <option value="admin">Admin</option>
-                    <option value="wali_santri">Wali Santri </option>
+                    <option value="wali_santri">Wali Santri</option>
                 </select>
                 @error('role')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -42,28 +41,19 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password" required>
+                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" required>
                 @error('password')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="form-group">
-                <label for="passwordConfrim">Password Confrim</label>
-                <input type="password" class="form-control" name="passwordConfrim" id="passwordConfrim" required>
-                @error('passwordConfrim')
+                <label for="passwordConfirm">Konfirmasi Password</label>
+                <input type="password" class="form-control @error('passwordConfirm') is-invalid @enderror" name="passwordConfirm" id="passwordConfirm" required>
+                @error('passwordConfirm')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-
-
-
-
-
-
-
-
-
 
             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
         </form>

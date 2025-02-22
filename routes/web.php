@@ -50,7 +50,8 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function() {
     Route::resource('pendaftar', PendaftarController::class);
     //Akun Pengguna
     Route::resource('akun', AkunController::class);
-
+    //Verifikasi
+    
 });
 
 // Route untuk Wali Santri

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Jenjang Pendidikan')
+@section('title', 'Edit Tahun Ajaran')
 
-@section('title2', 'Edit Jenjang Pendidikan')
+@section('title2', 'Edit Tahun Ajaran')
 
 @section('content')
 <div class="card">
@@ -19,14 +19,17 @@
 
            <div class="row">
             <div class="mb-3 col-md-3">
-                <label class="form-label">Jenjang Pendidikan</label>
+                <label class="form-label">Tahun Ajaran</label>
                 <input type="text" name="nama_tahun" id="nama_tahun" class="form-control " value="{{ $tahunAjaran->nama_tahun }}" >
             </div>
            </div>
            <div class="row">
             <div class="mb-3 col-md-3">
-                <label class="form-label">Status Pendidikan</label>
-                <input type="text" name="status" id="status" class="form-control" value="{{ $tahunAjaran->status }}" >
+                <label class="form-label">Status </label>
+               <select name="status" id="status" class="form-control">
+                <option value="aktif" {{ $tahunAjaran->status == 'aktif'?'selected' : '' }}>Aktif</option>
+                <option value="nonaktif" {{ $tahunAjaran->status == 'nonaktif'?'selected' : '' }}>Tidak Aktif</option>
+               </select>
             </div>
            </div>
            <div class="row">

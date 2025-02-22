@@ -73,8 +73,8 @@
                     <td>{{ $wali->email }}</td>
                     <td>{{ $wali->role}}</td>
                     <td>
-                        <a href="{{ route('akun.edit', 4) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="#" method="POST" onsubmit="confirmDelete(event)" style="display:inline;">
+                        <a href="{{ route('akun.edit', $wali->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{{ route('akun.destroy', $wali->id) }}" method="POST" onsubmit="confirmDelete(event)" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Hapus</button>

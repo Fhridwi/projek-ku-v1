@@ -30,7 +30,7 @@
                 <select class="form-control" name="user_id" id="user_id" required>
                     <option value="">-- Pilih User --</option>
                     @foreach($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        <option value="{{ $user->id }}">{{ $user->id }} - {{ $user->name }}</option>
                     @endforeach
                 </select>
                 
