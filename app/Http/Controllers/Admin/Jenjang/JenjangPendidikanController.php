@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin\Jenjang;
+namespace App\Http\Controllers\Admin\Jenjang;
 
 use App\Http\Controllers\Controller;
 use App\Models\JenjangPendidikan;
@@ -30,6 +30,7 @@ class JenjangPendidikanController extends Controller
 
     public function edit(JenjangPendidikan $jenjang)
     {
+        
         return view('admin.jenjang.edit', compact('jenjang'));
     }
 

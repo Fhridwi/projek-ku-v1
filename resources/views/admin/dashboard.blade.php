@@ -58,7 +58,7 @@
                 </span>
                 <div class="info-box-content">
                     <span class="info-box-text">Kuota Pendaftaran</span>
-                    <span class="info-box-number">{{ $kouta->kouta }}</span>
+                    <span class="info-box-number">{{ $kouta->kouta  }}</span>
                 </div>
             </div>
         </div>
@@ -108,20 +108,23 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
-                                @foreach ($santriTerbaru as $santri)
-                                    <li class="list-group-item d-flex align-items-center">
-                                        <img src="{{ asset('storage/' . ($santri->FilePendaftaran->pas_foto ?? 'default.png')) }}"
-                                            class="rounded-circle me-2"
-                                            alt="Profil"
-                                            width="50"
-                                            height="50"
-                                            style="object-fit: cover;">
-                                      <div>
-                                            <strong>{{ $santri->nama_santri }}</strong><br>
-                                            <small>{{ $santri->orangTua->no_hp ?? '-' }}</small>
-                                        </div>
-                                    </li>
-                                @endforeach
+                                @forelse ( $santriTerbaru as $santri )
+                                <li class="list-group-item d-flex align-items-center">
+                                    <img src="{{ asset('storage/' . ($santri->FilePendaftaran->pas_foto ?? 'default.png')) }}"
+                                        class="rounded-circle me-2"
+                                        alt="Profil"
+                                        width="50"
+                                        height="50"
+                                        style="object-fit: cover;">
+                                  <div>
+                                        <strong>{{ $santri->nama_santri }}</strong><br>
+                                        <small>{{ $santri->orangTua->no_hp ?? '-' }}</small>
+                                    </div>
+                                </li>
+                                @empty
+                                    <p class="text-center">Tidak ada data santri terbaru</p>
+                                @endforelse ($santriTerbaru as $santri)
+                                  
                             </ul>
                         </div>
                     </div>

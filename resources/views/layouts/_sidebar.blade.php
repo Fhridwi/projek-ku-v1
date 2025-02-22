@@ -112,7 +112,7 @@
                 <!-- Pengaturan -->
                 <li class="nav-header">Pengaturan</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" onclick="showAlert()">
+                    <a href="{{ route('akun.index') }}" class="nav-link" >
                         <i class="nav-icon bi bi-people-fill"></i>
                         <p>Manajemen Pengguna</p>
                     </a>
